@@ -1,0 +1,44 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+ifstream f;
+
+int main()
+{
+	char command[10];
+int value,current, next, count = 0;
+int position = 0,aim=0,depth=0;
+
+	f.open("date.txt");
+	
+	while (!f.eof())
+	{
+		f >> command >> value;
+		if (strcmp(command,"forward")==0)
+		{
+			position = position + value;
+			depth = depth+aim * value;
+			
+			
+			
+		}
+		
+		if (strcmp(command,"up")==0)
+		{
+			aim = aim - value;
+		}
+		if (strcmp(command,"down")==0)
+		{
+			aim= aim+value;
+			
+		}
+	}
+	f.close();
+	cout << position*depth;
+
+
+	
+
+	return 0;
+}
